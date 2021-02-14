@@ -50,14 +50,12 @@ const showImages = (images) => {
     images.hits[index] ? tagsShow(index) : "";
   })
  
-  console.log(tagsArray)
   showfoundResult.innerHTML = `<h3 class="bg-info bordered text-white p-2 text-left"> Total Found Result${lenImg}</h3>`
   lenImg > 0 ? imagesArea.style.display = 'block' : imagesArea.style.display = 'none';
   gallery.innerHTML = '';
   // show gallery title
   galleryHeader.style.display = 'flex';
   images.hits.forEach((image, index, array) => {
-    console.log(image)
     window.imagearray = array;
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
@@ -69,7 +67,6 @@ const showImages = (images) => {
 function searchTags(value) {
 
   loading.classList.remove('d-none');
-  console.log('search')
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   getImages(value)
@@ -128,14 +125,11 @@ const selectItem = (event, img) => {
   element.classList.add('added');
 
   let item = sliders.indexOf(img);
-  console.log(item)
   if (item === -1) {
     sliders.push(img);
-    console.log(sliders)
   } else {
     element.classList.remove('added');
     sliders.shift(item);
-    console.log(sliders)
 
   }
 }
@@ -214,7 +208,6 @@ const changeSlide = (index) => {
 function searchFnc(id, onpress) {
   id.addEventListener(onpress, function () {
     loading.classList.remove('d-none');
-    console.log('search')
     document.querySelector('.main').style.display = 'none';
     clearInterval(timer);
     const search = document.getElementById('search');
